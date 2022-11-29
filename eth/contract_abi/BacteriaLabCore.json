@@ -1,0 +1,249 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "endGame",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "enterGame",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "gameInitVar",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "MAP_WIDTH",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "MAP_LENGTH",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "PLAYER_INITIAL_NUTRITION",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "COLONY_MAX_ABSORPTION_RATE",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "COLONY_MAX_DEFENSE_NUTRITION",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "COLONY_MAX_OCCUPY_NUTRITION",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "COLONY_NUTRITION_ABSORPTION_INIT_RANDOM_SEED",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "COLONY_DEFENSE_NUTRITION_INIT_RANDOM_SEED",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "COLONY_OCCUPY_NUTRITION_INTI_RANDOM_SEED",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "gameManager",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "adminAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "time",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "mapWidth",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "mapLength",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalColonyCount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "isInit",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "isStart",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "isEnd",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "playerCount",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "colonyID",
+				"type": "uint256"
+			}
+		],
+		"name": "getColonyInfo",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "playerID",
+				"type": "uint256"
+			}
+		],
+		"name": "getPlayerInfo",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "initializeGame",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "initializeGameManager",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "pickWinner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "updateState",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]

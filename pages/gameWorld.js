@@ -2,12 +2,12 @@
 
 import React, {Component} from 'react';
 import web3 from '../eth/web3';
+import bacteriaLabCore from '../eth/bacteriaLabCore';
+
 
 class GameWorld extends Component {
-  render() {
-    console.log(web3.version);
-    web3.eth.getAccounts().then(console.log);
 
+  render() {
     return (
       <div>Welcome to Bacteria Lab Game World!</div>
     );

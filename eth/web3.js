@@ -20,5 +20,5 @@ else {
   );
   web3 = new Web3(provider);
 }
- 
+
 export default web3;

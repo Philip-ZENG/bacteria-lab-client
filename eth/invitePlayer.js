@@ -3,7 +3,7 @@
 // So that our frontend can communicate with the deployed contract through the web3 instance
 
 import web3 from './web3';
-import compiledInvitePlayer from '../../eth/build/InvitePlayer.json';
+import compiledInvitePlayer from './contract_abi/InvitePlayer.json';
 
 // contract deployment address
 const address = '0xC27b2B57685e648067026918A7BE6f9B4912A17e';
