@@ -16,6 +16,8 @@ import {
   List,
   Menu,
   Segment,
+  Button,
+  Icon
 } from 'semantic-ui-react'
 
 class InvitePlayer extends Component {
@@ -86,11 +88,15 @@ class InvitePlayer extends Component {
             </Dropdown.Menu>
           </Dropdown>
         </Menu>
+
+
         <Grid columns={4} divided>
           <style>
             {`
             html, body {background-color: #252839 !important;}
+            
             `}
+            
           </style>
           
           <Grid.Row>
@@ -99,23 +105,33 @@ class InvitePlayer extends Component {
             </Grid.Column>
 
             <Grid.Column width={7}>
-              <h1>Invite Player into the BacteriaLab Game</h1>
-              <p>The Admin Address of this game is: {this.state.adminAddress}</p>
-              <p>Currently {this.state.playerCount} players have join the game</p>
-              <p>The address of the last player who join the game is shwon below:</p>
-              <p>{this.state.lastPlayer}</p>
+              <Container textAlign='center'>
+              <div>
+              <h1 style={{color:'#ffffff'}}>Invite Player into the BacteriaLab Game</h1>
+              <p style={{color:'#ffffff'}}>The Admin Address of this game is: {this.state.adminAddress}</p>
+              <p style={{color:'#ffffff'}}>Currently {this.state.playerCount} players have join the game</p>
+              <p style={{color:'#ffffff'}}>The address of the last player who join the game is shwon below:</p>
+              <p style={{color:'#ffffff'}}>{this.state.lastPlayer}</p>
+              </div>
+              
               <form onSubmit={this.onSubmit}>
-                <h4>Invite New Player</h4>
+                <h4 style={{color:'#ffffff'}}>Invite New Player</h4>
                 <div>
-                  <label>Enter Address of New Player</label>
+                  <label style={{color:'#ffffff'}}>Enter Address of New Player</label>
                   <input 
                     value={this.state.newPlayerAddress}
                     onChange={event => this.setState({ newPlayerAddress: event.target.value })}
                   />
                 </div>
-                <button>Invite</button>
+                <Button animated='vertical'>
+                  <Button.Content visible>Invite</Button.Content>
+                  <Button.Content hidden>
+                    <Icon name='arrow right' />
+                  </Button.Content>
+                </Button>
               </form>
               <h1>{this.state.message}</h1>
+              </Container>
             </Grid.Column>
 
             <Grid.Column width={7}>
