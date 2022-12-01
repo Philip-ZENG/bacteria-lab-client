@@ -18,19 +18,19 @@ class NavbarBottom extends Component {
           <Grid.Column width={3}>
             <Header inverted as='h4' content='Zhuoru Zeng' />
             <List link inverted>
-              <List.Item as='a'>Link One</List.Item>
+              <List.Item as='a'>119010417</List.Item>
             </List>
           </Grid.Column>
           <Grid.Column width={3}>
             <Header inverted as='h4' content='Yan Zhuang' />
             <List link inverted>
-              <List.Item as='a'>Link One</List.Item>
+              <List.Item as='a'>120090303</List.Item>
             </List>
           </Grid.Column>
           <Grid.Column width={7}>
-            <Header inverted as='h4' content='FTE4312 Project: Bacteria Lab' />
+            <Header inverted as='h4' content='FTE4312 Project: Bacteria Land' />
             <List link inverted>
-              <List.Item as='a'>Link to Github</List.Item>
+              <List.Item as='a' href='https://github.com/Philip-ZENG/bacteria-lab'>Link to Github</List.Item>
             </List>
           </Grid.Column>
         </Grid>

@@ -7,9 +7,9 @@ class NavbarTop extends Component {
   render(){
     return (
         <Menu inverted>
-          <Menu.Item as='a' header>
+          <Menu.Item as='a' header href='https://github.com/Philip-ZENG/bacteria-lab'>
             <Image size='mini' src='/icon.png' style={{ marginRight: '1em' }} />
-              <p style={{color:'#38AFE8'}}>Bacteria Lab</p>
+              <p style={{color:'#38AFE8'}}>Bacteria Land</p>
           </Menu.Item>
           <Menu.Item as='a' onClick={()=>{Router.push('/')}}>Home</Menu.Item>
           <Menu.Item as='a' onClick={()=>{Router.push('/gameWorld')}}>GameWorld</Menu.Item>
@@ -27,7 +27,7 @@ class NavbarTop extends Component {
                   <Dropdown.Item onClick={()=>{Router.push('/adminConsole')}}>Console</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown.Item>
-              <Dropdown.Item>Github</Dropdown.Item>
+              <Dropdown.Item href='https://github.com/Philip-ZENG/bacteria-lab'>Github</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Menu>

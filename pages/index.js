@@ -87,7 +87,7 @@ class InvitePlayer extends Component {
             <Grid.Column width={7}>
               <Container textAlign='center'>
               <div>
-              <h1 style={{color:'#ffffff'}}>Invite Player into the BacteriaLab Game</h1>
+              <h1 style={{color:'#ffffff'}}>Welcome to Bacteria Land!</h1>
               <p style={{color:'#ffffff'}}>The Admin Address of this game is: {this.state.adminAddress}</p>
               <p style={{color:'#ffffff'}}>Currently {this.state.playerCount} players have join the game</p>
               <p style={{color:'#ffffff'}}>The address of the last player who join the game is shwon below:</p>
@@ -104,7 +104,7 @@ class InvitePlayer extends Component {
                   />
                 </div>
                 <Button animated='vertical'>
-                  <Button.Content visible>I'm Ready</Button.Content>
+                  <Button.Content visible>Play</Button.Content>
                   <Button.Content hidden>
                     <Icon name='arrow right' />
                   </Button.Content>
