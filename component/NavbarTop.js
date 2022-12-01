@@ -17,7 +17,7 @@ class NavbarTop extends Component {
 
           <Dropdown item simple text='Admin (only for Beta)'>
             <Dropdown.Menu>
-              <Dropdown.Item onClick={()=>{Router.push('/adminInvite')}}>Invite</Dropdown.Item>
+              <Dropdown.Item href='https://github.com/Philip-ZENG/bacteria-lab'>Github</Dropdown.Item>
               <Dropdown.Divider />
               <Dropdown.Header>Dev Tool</Dropdown.Header>
               <Dropdown.Item>
@@ -27,7 +27,7 @@ class NavbarTop extends Component {
                   <Dropdown.Item onClick={()=>{Router.push('/adminConsole')}}>Console</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown.Item>
-              <Dropdown.Item href='https://github.com/Philip-ZENG/bacteria-lab'>Github</Dropdown.Item>
+              
             </Dropdown.Menu>
           </Dropdown>
         </Menu>
