@@ -1,7 +1,6 @@
 // This page is used to invite players to join the game
 
 import React, {Component} from 'react';
-import Router from 'next/router';
 import web3 from '../eth/web3';
 import invitePlayer from '../eth/invitePlayer';
 import 'semantic-ui-css/semantic.min.css';
@@ -104,7 +103,7 @@ class InvitePlayer extends Component {
                   />
                 </div>
                 <Button animated='vertical'>
-                  <Button.Content visible>I'm Ready</Button.Content>
+                  <Button.Content visible>Invite</Button.Content>
                   <Button.Content hidden>
                     <Icon name='arrow right' />
                   </Button.Content>
@@ -129,9 +128,8 @@ class InvitePlayer extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-
-        <NavbarBottom />
         
+        <NavbarBottom />
       </div>
 
     );
