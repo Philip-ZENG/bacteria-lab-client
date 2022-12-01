@@ -6,8 +6,6 @@ import Router from 'next/router';
 import web3 from '../eth/web3';
 import bacteriaLabCore from '../eth/bacteriaLabCore';
 import 'semantic-ui-css/semantic.min.css';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import PlayerInfo from '../component/PlayerInfo';
 import Gameboard from '../component/Gameboard';
@@ -25,7 +23,7 @@ import {
     Image,
     List,
     Menu,
-    Segment,
+    Message,
     Icon,
     Input
 } from 'semantic-ui-react'
@@ -47,7 +45,7 @@ class GameWorld extends Component {
                     <Grid.Row>
                         <Grid.Column width={1}>
                         </Grid.Column>
-                        <Grid.Column width={7}>
+                        <Grid.Column width={6}>
                             <div style={{height:'120px'}}></div>
                             <Divider horizontal>
                                 <Header as='h3'>
@@ -55,8 +53,17 @@ class GameWorld extends Component {
                                     Bacteria Land NFT
                                 </Header>
                             </Divider>
-
-                            <div style={{height:'250px'}}></div>
+                            <Message
+                                icon='image'
+                                header='What is the NFTs of Bacteria Land?'
+                                content='The NFT is the history of Bacteria Land. All contributions play a vital part in the lifecycle of Bacteria Land!'
+                            />
+                            <Message
+                                icon='history'
+                                header='The Carol of Bacteria Land History'
+                                content='Her story is not written, she walks this earth making history one step at a time. She whispers to the waves and they carry her song to the whales. One day a fisherman will find her story washed ashore, laying sodden and sandy on a rock and around the fire, her tale will be told.'
+                            />
+                            <div style={{height:'25px'}}></div>
                             <Divider horizontal>
                                 <Header as='h3'>
                                     <Icon name='search' />
@@ -66,10 +73,15 @@ class GameWorld extends Component {
                             <form onSubmit={()=>Router.push('/gameWorld')}>
                                 <Input action='Show' placeholder='Search...' size='small' fluid /> 
                             </form>
+                            <Message warning
+                                icon='warning sign'
+                                header='How to check the NFT?'
+                                content='Please input the NFT ID.'
+                            />
 
                         </Grid.Column>
 
-                        <Grid.Column width={7}>
+                        <Grid.Column width={8}>
                             <div style={{ height: '25px' }}>
                             </div>
                             <Container textAlign='center'>
