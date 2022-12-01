@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 import web3 from '../eth/web3';
-import invitePlayer from '../eth/invitePlayer';
+import BacteriaLabCore from '../eth/bacteriaLabCore';
 import 'semantic-ui-css/semantic.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -26,39 +26,21 @@ import NavbarTop from '../component/NavbarTop';
 import NavbarBottom from '../component/NavbarBottom';
 
 class InvitePlayer extends Component {
-  state = {
-    adminAddress: '',
-    playerCount: '',
-    playerList: [''],
-    lastPlayer: '',
-    newPlayerAddress: '',
-    message: ''
-  };
 
-  // life cycle function run when rendering, good place for loading initial data
-  async componentDidMount() {
-    const admin = await invitePlayer.methods.adminAddress().call();
-    this.setState({adminAddress: admin})
-
-    const playerCount = await invitePlayer.methods.playerCount().call();
-    this.setState({playerCount: playerCount})
-
-    const lastPlayer = await invitePlayer.methods.playerList(playerCount-1).call();
-    this.setState({lastPlayer: lastPlayer});
-  }
-
-  onSubmit = async (event) => {
+  onEnterGame = async (event) => {
     event.preventDefault();
 
     const accounts = await web3.eth.getAccounts();
 
-    this.setState({ message: 'Waiting on transaction success...(Around 15~30 seconds)' });
+    console.log('Waiting on transaction success...(Around 15~30 seconds)');
 
-    await invitePlayer.methods.invitePlayer(this.state.newPlayerAddress).send({
+    await BacteriaLabCore.methods.enterGame().send({
       from: accounts[0]
     })
 
-    this.setState({ message: 'You have been invited!' });
+    console.log('You have enter the game!');
+
+    Router.push('/gameWorld');
   };
 
 
@@ -124,8 +106,7 @@ class InvitePlayer extends Component {
               <div style={{height:'60px'}}></div>
               </div>
               
-              
-              <Button animated='vertical' primary onClick={()=>Router.push('/gameWorld')}>
+              <Button animated='vertical' primary onClick={this.onEnterGame}>
                 <Button.Content visible><h4>Go to Bacteria Land!</h4></Button.Content>
                 <Button.Content hidden>
                   <Icon name='arrow right' />
@@ -134,8 +115,6 @@ class InvitePlayer extends Component {
 
               </Container>
             </Grid.Column>
-
-            
 
             <Grid.Column width={1}>
               

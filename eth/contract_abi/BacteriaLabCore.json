@@ -1,8 +1,26 @@
 [
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "playerID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "attackNutrition",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "targetColonyID",
+				"type": "uint256"
+			}
+		],
+		"name": "attack",
+		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "constructor"
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -14,6 +32,56 @@
 	{
 		"inputs": [],
 		"name": "enterGame",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "initializeGame",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "initializeGameManager",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "playerID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "targetColonyID",
+				"type": "uint256"
+			}
+		],
+		"name": "occupy",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "creator",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "updateState",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -214,20 +282,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "initializeGame",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "initializeGameManager",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "pickWinner",
 		"outputs": [
 			{
@@ -237,13 +291,6 @@
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "updateState",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]

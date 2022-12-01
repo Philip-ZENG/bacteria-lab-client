@@ -6,11 +6,11 @@ import web3 from './web3';
 import BacteriaLabCoreABI from './contract_abi/BacteriaLabCore.json';
 
 // contract deployment address
-const address = '0xcB94C67d0aE7416fc24204C2Db617FEa36705fFe';
+const address = '0x9BFd63750c3DDBCA7558c0938E4388c014fc1601';
 
 // contract abi
 const abi = BacteriaLabCoreABI;
 
-const instance = new web3.eth.Contract(abi, address);
+const BacteriaLabCore = new web3.eth.Contract(abi, address);
 
-export default instance;
+export default BacteriaLabCore;
