@@ -9,6 +9,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import PlayerInfo from '../component/PlayerInfo';
 import Gameboard from '../component/Gameboard';
+import TileInfo from '../component/TileInfo';
 
 import {
   Container,
@@ -20,7 +21,9 @@ import {
   List,
   Menu,
   Segment,
+  Icon
 } from 'semantic-ui-react'
+import Actionboard from '../component/Actionboard';
 
 class GameWorld extends Component {
 
@@ -54,10 +57,8 @@ class GameWorld extends Component {
       </Menu>
 
 
-        <Grid columns={4} divided>
+        <Grid columns={2} divided>
           <Grid.Row>
-            <Grid.Column width={1}>
-            </Grid.Column>
             <Grid.Column width={7}>
               <div style={{height: '25px'}}>
               </div>
@@ -66,18 +67,28 @@ class GameWorld extends Component {
               </Container>
             </Grid.Column>
 
-            <Grid.Column width={7}>
-              <div style={{height: '150px'}}>
+            <Grid.Column width={9}>
+            <Divider horizontal>
+      <Header as='h3'>
+        <Icon name='user secret' />
+        Player Info
+      </Header>
+    </Divider>
                 <PlayerInfo />
-              </div>
-              <div style={{height: '200px'}}>
-                Tile Info
-              </div>
-              <div style={{height: '150px'}}>
-                Action
-              </div>
-            </Grid.Column>
-            <Grid.Column width={1}>
+              <Divider horizontal>
+      <Header as='h3'>
+        <Icon name='tag' />
+        Tile Info
+      </Header>
+    </Divider>
+                <TileInfo />
+              <Divider horizontal>
+      <Header as='h3'>
+        <Icon name='american sign language interpreting' />
+        Acrion Board
+      </Header>
+    </Divider>
+                <Actionboard />
             </Grid.Column>
           </Grid.Row>
         </Grid>

@@ -5,7 +5,7 @@ import web3 from '../eth/web3';
 import bacteriaLabCore from '../eth/bacteriaLabCore';
 import {Button} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import PlayerHeader from '../component/PlayerHeader';
+import PlayerHeader from '../component/PlayerInfo';
 import ColonyInfoWindow from '../component/ColonyInfoWindow';
 
 class AdminConsole extends Component {
