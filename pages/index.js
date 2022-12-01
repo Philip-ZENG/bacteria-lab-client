@@ -1,6 +1,7 @@
 // This page is used to invite players to join the game
 
 import React, {Component} from 'react';
+import Head from 'next/head';
 import Router from 'next/router';
 import web3 from '../eth/web3';
 import invitePlayer from '../eth/invitePlayer';
@@ -67,6 +68,12 @@ class InvitePlayer extends Component {
 
     return (
       <div>
+        <Head>
+          <title>Welcome to Bacteria Land</title>
+          <meta name="description" content="Welcome to Bacteria Land!" />
+          <link rel="icon" href="/icon.png" />
+        </Head>
+        
         <NavbarTop />
 
 
@@ -86,36 +93,6 @@ class InvitePlayer extends Component {
 
             <Grid.Column width={7}>
               <Container textAlign='center'>
-              <div>
-              <h1 style={{color:'#ffffff'}}>Welcome to Bacteria Land!</h1>
-              <p style={{color:'#ffffff'}}>The Admin Address of this game is: {this.state.adminAddress}</p>
-              <p style={{color:'#ffffff'}}>Currently {this.state.playerCount} players have join the game</p>
-              <p style={{color:'#ffffff'}}>The address of the last player who join the game is shwon below:</p>
-              <p style={{color:'#ffffff'}}>{this.state.lastPlayer}</p>
-              </div>
-              
-              <form onSubmit={this.onSubmit}>
-                <h4 style={{color:'#ffffff'}}>Invite New Player</h4>
-                <div>
-                  <label style={{color:'#ffffff'}}>Enter Address of New Player</label>
-                  <input 
-                    value={this.state.newPlayerAddress}
-                    onChange={event => this.setState({ newPlayerAddress: event.target.value })}
-                  />
-                </div>
-                <Button animated='vertical'>
-                  <Button.Content visible>Play</Button.Content>
-                  <Button.Content hidden>
-                    <Icon name='arrow right' />
-                  </Button.Content>
-                </Button>
-              </form>
-              <h1>{this.state.message}</h1>
-              </Container>
-            </Grid.Column>
-
-            <Grid.Column width={7}>
-              <Container textAlign='center'>
               <div style={{height: '72px'}}>
               </div>
                 <Image size='big' src='/icon.png' verticalAlign='middle'/>
@@ -123,6 +100,42 @@ class InvitePlayer extends Component {
               </div>
               </Container>
             </Grid.Column>
+
+            <Grid.Column width={7}>
+              <div style={{height:'125px'}}></div>
+              <Container textAlign='left'>
+              <div>
+              <h1 style={{color:'#ffffff'}}>Welcome to Bacteria Land!</h1>
+              <div style={{height:'25px'}}></div>
+
+              <h4 style={{color:'#ffffff'}}>We are bacteria. We are ubiquitous, mostly free-living organisms. </h4>
+              <div style={{height:'5px'}}></div>
+              <h4 style={{color:'#ffffff'}}>We are creating artwork that constantly changes over our short lifetimes. </h4>
+              <div style={{height:'20px'}}></div>
+
+              <h4 style={{color:'#ffffff'}}>But even if the impact (or drawings) of some communities may not go the </h4>
+              <div style={{height:'5px'}}></div>
+              <h4 style={{color:'#ffffff'}}>distance, the history depicting the ongoing mutation of the canvas</h4>
+              <div style={{height:'5px'}}></div>
+              <h4 style={{color:'#ffffff'}}>has become a key part of our world! </h4>
+              <div style={{height:'20px'}}></div>
+
+              <h4 style={{color:'#ffffff'}}>All contributions play a vital part in the lifecycle of Bacteria Land!</h4>
+              <div style={{height:'60px'}}></div>
+              </div>
+              
+              
+              <Button animated='vertical' primary onClick={()=>Router.push('/gameWorld')}>
+                <Button.Content visible><h4>Go to Bacteria Land!</h4></Button.Content>
+                <Button.Content hidden>
+                  <Icon name='arrow right' />
+                </Button.Content>
+              </Button>
+
+              </Container>
+            </Grid.Column>
+
+            
 
             <Grid.Column width={1}>
               

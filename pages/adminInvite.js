@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import web3 from '../eth/web3';
 import invitePlayer from '../eth/invitePlayer';
+import Head from 'next/head';
 import 'semantic-ui-css/semantic.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -66,6 +67,12 @@ class InvitePlayer extends Component {
 
     return (
       <div>
+        <Head>
+          <title>AdminInvite(Beta)</title>
+          <meta name="description" content="AdminInvite(Beta)" />
+          <link rel="icon" href="/icon.png" />
+        </Head>
+
         <NavbarTop />
 
 
@@ -84,6 +91,7 @@ class InvitePlayer extends Component {
             </Grid.Column>
 
             <Grid.Column width={7}>
+              <div style={{height:'150px'}}></div>
               <Container textAlign='center'>
               <div>
               <h1 style={{color:'#ffffff'}}>Invite Player into the BacteriaLab Game</h1>

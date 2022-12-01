@@ -1,6 +1,7 @@
 // This page is used to the game world
 
 import React, {Component} from 'react';
+import Head from 'next/head';
 import Router from 'next/router';
 import web3 from '../eth/web3';
 import bacteriaLabCore from '../eth/bacteriaLabCore';
@@ -33,6 +34,12 @@ class GameWorld extends Component {
   render() {
     return (
     <div>
+      <Head>
+        <title>GameWorld</title>
+        <meta name="description" content="GameWorld" />
+        <link rel="icon" href="/icon.png" />
+      </Head>
+      
       <NavbarTop />
       
         <Grid columns={2} divided>
