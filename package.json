@@ -10,7 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.1",
     "fs-extra": "^10.0.0",
+    "mdb-react-ui-kit": "^5.0.0",
     "next": "^12.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
