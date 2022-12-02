@@ -6,18 +6,16 @@ import { Grid } from "semantic-ui-react";
 const mapWidth = 3;
 
 function generateRow(startID) {
-  const columns = _.times(mapWidth, (i) => (
-    <Grid.Column key={i+startID} width={1}>
-      <Tile colonyID={i+startID}/>
-    </Grid.Column>
+  const columns = _.times(mapWidth, (i) => (   
+    <Tile colonyID={i+startID}/>
   ))
   return columns;
 };
   
 const map = _.times(mapWidth, (j) => (
-  <Grid.Row key={j}>
+  <div style={{height: '45px'}}>
     {generateRow(mapWidth*j)}
-  </Grid.Row>
+  </div> 
 ))
 
 
@@ -25,9 +23,7 @@ class Gameboard extends Component {
   render(){
     return (
       <div>
-        <Grid centered relaxed> 
           {map}
-        </Grid>
       </div>
     );
   }

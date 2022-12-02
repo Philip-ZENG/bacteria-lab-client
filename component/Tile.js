@@ -37,9 +37,7 @@ class Tile extends Component {
 
   render() {
     return(
-      <div>
         <Button icon color={this.state.color} size='massive' onClick={this.onTrigger.bind(this)}/>
-      </div>
     );
   }
 };
