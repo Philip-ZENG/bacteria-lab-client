@@ -7,10 +7,10 @@ import web3 from '../eth/web3';
 import bacteriaLabCore from '../eth/bacteriaLabCore';
 import 'semantic-ui-css/semantic.min.css';
 
-import PlayerInfo from '../component/PlayerInfo';
-import Gameboard from '../component/Gameboard';
-import TileInfo from '../component/TileInfo';
-import Actionboard from '../component/Actionboard';
+import { Provider } from 'react-redux';
+import store from '../store/index';
+
+import NFTboard from '../component/NFTboard';
 import NavbarTop from '../component/NavbarTop';
 import NavbarBottom from '../component/NavbarBottom';
 
@@ -28,7 +28,7 @@ import {
     Input
 } from 'semantic-ui-react'
 
-class GameWorld extends Component {
+class NFT extends Component {
 
     render() {
         return (
@@ -85,7 +85,9 @@ class GameWorld extends Component {
                             <div style={{ height: '25px' }}>
                             </div>
                             <Container textAlign='center'>
-                                <Gameboard />
+                                <Provider store={store}>
+                                    <NFTboard />
+                                </Provider>
                             </Container>
                         </Grid.Column>
 
@@ -103,6 +105,6 @@ class GameWorld extends Component {
     };
 }
 
-export default GameWorld
+export default NFT
 
 

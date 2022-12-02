@@ -1,13 +1,13 @@
 import _ from 'lodash'
 import React,  {Component} from 'react';
-import Tile from './Tile';
+import NFTTile from './NFTTile';
 import { Grid } from "semantic-ui-react";
 
 const mapWidth = 16;
 
 function generateRow(startID) {
   const columns = _.times(mapWidth, (i) => (   
-    <Tile colonyID={i+startID}/>
+    <NFTTile colonyID={i+startID}/>
   ))
   return columns;
 };
@@ -19,7 +19,7 @@ const map = _.times(mapWidth, (j) => (
 ))
 
 
-class Gameboard extends Component {
+class NFTboard extends Component {
   render(){
     return (
       <div>
@@ -29,4 +29,4 @@ class Gameboard extends Component {
   }
 };
 
-export default Gameboard;
+export default NFTboard;
