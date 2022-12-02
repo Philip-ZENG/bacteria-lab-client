@@ -50,7 +50,7 @@ class GameWorld extends Component {
                 <div style={{height: '25px'}}>
                 </div>
                 <Container textAlign='center'>
-                  
+
                   <Provider store={store}>
                     <Gameboard />
                   </Provider>
@@ -75,7 +75,9 @@ class GameWorld extends Component {
                   </Header>
                 </Divider>
 
-                <TileInfo colonyID={this.state.colonyIDonSelection}/>
+                <Provider store={store}>
+                  <TileInfo colonyID={this.state.colonyIDonSelection}/>
+                </Provider>
 
                 <Divider horizontal>
                   <Header as='h3'>
@@ -84,7 +86,9 @@ class GameWorld extends Component {
                   </Header>
                 </Divider>
                 
-                <Actionboard colonyID={this.state.colonyIDonSelection}/>
+                <Provider store={store}>
+                  <Actionboard colonyID={this.state.colonyIDonSelection}/>
+                </Provider>
 
               </Grid.Column>
             </Grid.Row>

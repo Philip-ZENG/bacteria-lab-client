@@ -4,10 +4,11 @@ import React, { Component } from 'react';
 import { Container, Button, Grid, Card,  Form, Input, Message } from 'semantic-ui-react';
 import BacteriaLabCore from '../eth/bacteriaLabCore';
 import web3 from '../eth/web3';
+import { connect } from 'react-redux';
 
 class Actionboard extends Component {
   state = {
-    colonyID: this.props.colonyID,
+    selectedColonyID: this.props.selectedColonyID,
     attackLoading: false,
     occupyLoading: false,
     attackNutritionInput: "",
@@ -21,7 +22,7 @@ class Actionboard extends Component {
     this.setState({ attackLoading: true, messageContent: '', messageHidden:true });
     try {
       const playerID = await BacteriaLabCore.methods.getPlayerID(accounts[0]).call();
-      await BacteriaLabCore.methods.attack(playerID, this.state.attackNutritionInput, this.state.colonyID).send({
+      await BacteriaLabCore.methods.attack(playerID, this.state.attackNutritionInput, this.props.selectedColonyID).send({
         from: accounts[0]
       });
     } catch(err) {
@@ -36,7 +37,7 @@ class Actionboard extends Component {
     this.setState({ occupyLoading: true, messageContent: '',  messageHidden:true });
     const playerID = await BacteriaLabCore.methods.getPlayerID(accounts[0]).call();
     try {
-      await BacteriaLabCore.methods.occupy(playerID, this.state.colonyID).send({
+      await BacteriaLabCore.methods.occupy(playerID, this.props.selectedColonyID).send({
         from: accounts[0]
       });
     } catch(err) {
@@ -54,7 +55,7 @@ class Actionboard extends Component {
               <Container textAlign='center'>
                 <Card fluid>
                   <Card.Content>
-                    <Card.Header>Attack Colony {this.state.colonyID}</Card.Header>
+                    <Card.Header>Attack Colony {this.props.selectedColonyID}</Card.Header>
                     <Card.Description>
                       Enter the amount of nutrition you want to deployed in this attack and click the attack button.
                     </Card.Description>
@@ -82,7 +83,7 @@ class Actionboard extends Component {
               <Container textAlign='center'>
                 <Card fluid>
                   <Card.Content>
-                    <Card.Header>Occupy Colony {this.state.colonyID}</Card.Header>
+                    <Card.Header>Occupy Colony {this.props.selectedColonyID}</Card.Header>
                     <Card.Description>
                       Click the button to occupy a colony that is not owned. To occupy a colony that has a owner, attack it first.
                     </Card.Description>
@@ -104,4 +105,17 @@ class Actionboard extends Component {
     }
 };
 
-export default Actionboard;
+const mapStateToProps = state => {
+  return {
+    selectedColonyID: state.selectedColonyID
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeSelectedColony: (newColonyID) => dispatch({type: 'changeSelectedColony', newSelectedColonyID: newColonyID})
+  }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Actionboard);

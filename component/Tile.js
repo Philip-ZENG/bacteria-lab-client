@@ -11,7 +11,7 @@ class Tile extends Component {
 
   state = {
     colonyID: this.props.colonyID,
-    color: "",
+    color: "grey",
     selectedColonyID: ""
   }
 
@@ -32,7 +32,7 @@ class Tile extends Component {
   }
 
   onTrigger = async () => {
-    this.props.changeSelectedColony();
+    this.props.changeSelectedColony(this.props.colonyID);
   };
 
   render() {
@@ -52,7 +52,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeSelectedColony: () => dispatch({type: 'changeSelectedColony'})
+    changeSelectedColony: (newColonyID) => dispatch({type: 'changeSelectedColony', newSelectedColonyID: newColonyID})
   }
 };
 
