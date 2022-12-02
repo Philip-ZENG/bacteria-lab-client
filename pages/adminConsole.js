@@ -5,8 +5,6 @@ import web3 from '../eth/web3';
 import bacteriaLabCore from '../eth/bacteriaLabCore';
 import {Button} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import PlayerHeader from '../component/PlayerInfo';
-import ColonyInfoWindow from '../component/ColonyInfoWindow';
 
 class AdminConsole extends Component {
   
@@ -143,8 +141,6 @@ class AdminConsole extends Component {
           <li>Colony is Owned: {String(this.state.colony.isOwned)}</li>
         </ul>
 
-        <ColonyInfoWindow colonyData={this.state.colony}/>
-
         <form onSubmit={this.onGetColony}>
           <div>
             <label>Enter Colony ID </label>
@@ -166,7 +162,6 @@ class AdminConsole extends Component {
           <li>Color: {this.state.player.color}</li>
           <li>Colony Count: {this.state.player.colonyCount}</li>
         </ul>
-        <PlayerHeader playerData={this.state.player}/>
         <form onSubmit={this.onGetPlayer}>
           <div>
             <label>Enter Player ID </label>

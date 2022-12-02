@@ -30,8 +30,8 @@ class TileInfo extends Component {
         <Container>
           <div style={{height:'250px'}}>
             <p>Colony ID: {this.props.selectedColonyID}</p>
-            <p>Owner ID: {this.state.absorptionRate}</p>
-            <p>Absorption Rate:{this.state.defenseNutrition}</p>
+            <p>Owner ID: {this.state.ownerID}</p>
+            <p>Absorption Rate:{this.state.absorptionRate}</p>
             <p>Defense Nutrition: {this.state.defenseNutrition}</p>
             <p>Occupy Nutrition: {this.state.occupyNutrition}</p>
             <p>Is Owned: {String(this.state.isOwned)}</p>
