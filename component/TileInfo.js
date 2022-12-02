@@ -1,7 +1,7 @@
 // Header at the top of the gameWorld page, where players can see the infor mation of their current status
 
-import React,  {Component} from 'react';
-import { Container, Button, Image, Grid, Card } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Container, Button, Image, Grid, Card, Statistic } from 'semantic-ui-react';
 import BacteriaLabCore from '../eth/bacteriaLabCore';
 import { connect } from 'react-redux';
 
@@ -15,52 +15,64 @@ class TileInfo extends Component {
     isOwned: false
   }
 
-  async componentDidMount(){
+  async componentDidMount() {
     this.getColonyInfo();
   }
 
   async getColonyInfo() {
     const colonyInfo = await BacteriaLabCore.methods.getColonyInfo(this.props.selectedColonyID).call();
-    this.setState({ownerID: colonyInfo[1], absorptionRate: colonyInfo[2], defenseNutrition: colonyInfo[3], occupyNutrition: colonyInfo[4], isOwned: colonyInfo[5]});
+    this.setState({ ownerID: colonyInfo[1], absorptionRate: colonyInfo[2], defenseNutrition: colonyInfo[3], occupyNutrition: colonyInfo[4], isOwned: colonyInfo[5] });
   }
 
-  render(){
+  render() {
     this.getColonyInfo();
     return (
-        <Container>
-          <div style={{height:'250px'}}>
-          <Button
-            content='Colony ID'
-            icon='heart'
-            label={{ as: 'a', basic: true, content: this.props.selectedColonyID }}
-            labelPosition='right'
-          />
-          <Button
-            content='Owner ID'
-            icon='heart'
-            label={{ as: 'a', basic: true, content: this.state.absorptionRate }}
-            labelPosition='right'
-          />
-          <Button
-            content='Absorption Rate'
-            icon='heart'
-            label={{ as: 'a', basic: true, content: this.state.absorptionRate }}
-            labelPosition='right'
-          />
-          <Button
-            content='Owner ID'
-            icon='heart'
-            label={{ as: 'a', basic: true, content: this.state.defenseNutrition}}
-            labelPosition='right'
-          />
-            <p>Colony ID: {this.props.selectedColonyID}</p>
-            <p>Owner ID: {this.state.ownerID}</p>
-            <p>Absorption Rate:{this.state.absorptionRate}</p>
-            <p>Defense Nutrition: {this.state.defenseNutrition}</p>
-            <p>Occupy Nutrition: {this.state.occupyNutrition}</p>
-            <p>Is Owned: {String(this.state.isOwned)}</p>
-          </div>
-        </Container>
+      <Container>
+      
+      <Grid columns={2} divided verticalAlign='middle'>
+        <Grid.Row centered stretched>
+          <Grid.Column width={2}>
+            <Statistic size='small'>
+              <Statistic.Value>{'#'+this.state.selectedColonyID}</Statistic.Value>
+              <Statistic.Label>Colony ID</Statistic.Label>
+            </Statistic>
+          </Grid.Column>
+
+          <Grid.Column width={2}>
+            <Statistic size='small'>
+              <Statistic.Value>{String(this.state.isOwned) == 'false' ? 'None' : '#'+this.state.ownerID}</Statistic.Value>
+              <Statistic.Label>Owner ID</Statistic.Label>
+            </Statistic>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+
+        <Grid columns={3} divided verticalAlign='middle'>
+          <Grid.Row centered stretched>
+            <Grid.Column width={5}>
+              <Statistic>
+                <Statistic.Value>{this.state.absorptionRate}</Statistic.Value>
+                <Statistic.Label>Absorption Rate</Statistic.Label>
+              </Statistic>
+            </Grid.Column>
+
+            <Grid.Column width={5}>
+              <Statistic>
+                <Statistic.Value>{this.state.defenseNutrition}</Statistic.Value>
+                <Statistic.Label>Defense Nutrition</Statistic.Label>
+              </Statistic>
+            </Grid.Column>
+
+            <Grid.Column width={5}>
+              <Statistic>
+                <Statistic.Value>{this.state.occupyNutrition}</Statistic.Value>
+                <Statistic.Label>Occupy Nutrition</Statistic.Label>
+              </Statistic>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+          
+      </Container>
     );
   }
 };
@@ -73,7 +85,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeSelectedColony: (newColonyID) => dispatch({type: 'changeSelectedColony', newSelectedColonyID: newColonyID})
+    changeSelectedColony: (newColonyID) => dispatch({ type: 'changeSelectedColony', newSelectedColonyID: newColonyID })
   }
 };
 
