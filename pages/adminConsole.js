@@ -73,9 +73,7 @@ class AdminConsole extends Component {
   onGetColony = async (event) => {
 
     event.preventDefault();
-    this.setState({ message: "Waiting on transaction success...(Around 15~30 seconds)" });
     const colonyInfo = await bacteriaLabCore.methods.getColonyInfo(this.state.colonyIDforQuery).call();
-    this.setState({ message: 'Colony info query succeed!' });
 
     console.log(colonyInfo);
     var colonyState = {

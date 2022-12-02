@@ -9,6 +9,9 @@ import 'semantic-ui-css/semantic.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+import { Provider } from 'react-redux';
+import store from '../store/index';
+
 import PlayerInfo from '../component/PlayerInfo';
 import Gameboard from '../component/Gameboard';
 import TileInfo from '../component/TileInfo';
@@ -25,6 +28,9 @@ import {
 } from 'semantic-ui-react'
 
 class GameWorld extends Component {
+  state = {
+    colonyIDonSelection: 3
+  }
 
   render() {
     return (
@@ -44,7 +50,11 @@ class GameWorld extends Component {
                 <div style={{height: '25px'}}>
                 </div>
                 <Container textAlign='center'>
-                  <Gameboard />
+                  
+                  <Provider store={store}>
+                    <Gameboard />
+                  </Provider>
+                
                 </Container>
               </Grid.Column>
 
@@ -65,7 +75,7 @@ class GameWorld extends Component {
                   </Header>
                 </Divider>
 
-                <TileInfo />
+                <TileInfo colonyID={this.state.colonyIDonSelection}/>
 
                 <Divider horizontal>
                   <Header as='h3'>
@@ -74,7 +84,7 @@ class GameWorld extends Component {
                   </Header>
                 </Divider>
                 
-                <Actionboard />
+                <Actionboard colonyID={this.state.colonyIDonSelection}/>
 
               </Grid.Column>
             </Grid.Row>

@@ -7,7 +7,7 @@ import web3 from '../eth/web3';
 
 class Actionboard extends Component {
   state = {
-    colonyID: "7",
+    colonyID: this.props.colonyID,
     attackLoading: false,
     occupyLoading: false,
     attackNutritionInput: "",
@@ -54,7 +54,7 @@ class Actionboard extends Component {
               <Container textAlign='center'>
                 <Card fluid>
                   <Card.Content>
-                    <Card.Header>Attack</Card.Header>
+                    <Card.Header>Attack Colony {this.state.colonyID}</Card.Header>
                     <Card.Description>
                       Enter the amount of nutrition you want to deployed in this attack and click the attack button.
                     </Card.Description>
@@ -82,7 +82,7 @@ class Actionboard extends Component {
               <Container textAlign='center'>
                 <Card fluid>
                   <Card.Content>
-                    <Card.Header>Occupy</Card.Header>
+                    <Card.Header>Occupy Colony {this.state.colonyID}</Card.Header>
                     <Card.Description>
                       Click the button to occupy a colony that is not owned. To occupy a colony that has a owner, attack it first.
                     </Card.Description>

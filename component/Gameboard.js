@@ -1,57 +1,34 @@
 import _ from 'lodash'
-import { MiddlewareNotFoundError } from 'next/dist/shared/lib/utils';
 import React,  {Component} from 'react';
-import { Grid, Button, Icon } from 'semantic-ui-react';
-import { MDBBtn } from "mdb-react-ui-kit";
+import Tile from './Tile';
+import { Grid } from "semantic-ui-react";
 
-function Tile(props) {
-  return <Button icon color={props.tilecolor} size='massive'></Button>;
-}
+const mapWidth = 3;
 
-const GameboardRaw = () => (
-    <div style={{height: '45px'}}>
-        <Tile tilecolor='blue'/>
-        <Tile tilecolor='yellow'/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-        <Tile/>
-    </div>
-)
+function generateRow(startID) {
+  const columns = _.times(mapWidth, (i) => (
+    <Grid.Column key={i+startID} width={1}>
+      <Tile colonyID={i+startID}/>
+    </Grid.Column>
+  ))
+  return columns;
+};
+  
+const map = _.times(mapWidth, (j) => (
+  <Grid.Row key={j}>
+    {generateRow(mapWidth*j)}
+  </Grid.Row>
+))
 
 
 class Gameboard extends Component {
   render(){
     return (
-        <div>
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-            <GameboardRaw />
-        </div>
-        
+      <div>
+        <Grid centered relaxed> 
+          {map}
+        </Grid>
+      </div>
     );
   }
 };

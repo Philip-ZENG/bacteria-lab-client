@@ -9,6 +9,7 @@ import 'semantic-ui-css/semantic.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import {Message} from 'semantic-ui-react';
+
 import {
   Container,
   Divider,
