@@ -19,13 +19,8 @@ import NavbarBottom from '../component/NavbarBottom';
 import {
   Container,
   Divider,
-  Dropdown,
   Grid,
   Header,
-  Image,
-  List,
-  Menu,
-  Segment,
   Icon
 } from 'semantic-ui-react'
 
@@ -33,55 +28,60 @@ class GameWorld extends Component {
 
   render() {
     return (
-    <div>
-      <Head>
-        <title>GameWorld</title>
-        <meta name="description" content="GameWorld" />
-        <link rel="icon" href="/icon.png" />
-      </Head>
-      
-      <NavbarTop />
-      
-        <Grid columns={2} divided>
-          <Grid.Row>
-            <Grid.Column width={7}>
-              <div style={{height: '25px'}}>
-              </div>
-              <Container textAlign='center'>
-                <Gameboard />
-              </Container>
-            </Grid.Column>
+      <div>
+        <Head>
+          <title>GameWorld</title>
+          <meta name="description" content="GameWorld" />
+          <link rel="icon" href="/icon.png" />
+        </Head>
+        
+        <NavbarTop />
+        
+          <Grid columns={2} divided>
+            <Grid.Row>
 
-            <Grid.Column width={9}>
-            <Divider horizontal>
-      <Header as='h3'>
-        <Icon name='user secret' />
-        Player Info
-      </Header>
-    </Divider>
+              <Grid.Column width={7}>
+                <div style={{height: '25px'}}>
+                </div>
+                <Container textAlign='center'>
+                  <Gameboard />
+                </Container>
+              </Grid.Column>
+
+              <Grid.Column width={9}>
+                <Divider horizontal>
+                  <Header as='h3'>
+                    <Icon name='user secret' />
+                    Player Info
+                  </Header>
+                </Divider>
+
                 <PlayerInfo />
-              <Divider horizontal>
-      <Header as='h3'>
-        <Icon name='tag' />
-        Tile Info
-      </Header>
-    </Divider>
+                
+                <Divider horizontal>
+                  <Header as='h3'>
+                    <Icon name='tag' />
+                    Tile Info
+                  </Header>
+                </Divider>
+
                 <TileInfo />
-              <Divider horizontal>
-      <Header as='h3'>
-        <Icon name='american sign language interpreting' />
-        Acrion Board
-      </Header>
-    </Divider>
+
+                <Divider horizontal>
+                  <Header as='h3'>
+                    <Icon name='american sign language interpreting' />
+                    Acrion Board
+                  </Header>
+                </Divider>
+                
                 <Actionboard />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
 
-      <NavbarBottom />       
-    </div>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
 
-
+        <NavbarBottom />       
+      </div>
     );
   };
 }

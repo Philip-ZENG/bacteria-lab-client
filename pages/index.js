@@ -8,6 +8,7 @@ import BacteriaLabCore from '../eth/bacteriaLabCore';
 import 'semantic-ui-css/semantic.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import {Message} from 'semantic-ui-react';
 import {
   Container,
   Divider,
@@ -27,20 +28,27 @@ import NavbarBottom from '../component/NavbarBottom';
 
 class InvitePlayer extends Component {
 
+  state = {
+    errorMessage: '',
+    loading: false,
+    messageHidden: true
+  }
+
+  // Triggered when `enter game` buttom is clicked
   onEnterGame = async (event) => {
     event.preventDefault();
-
     const accounts = await web3.eth.getAccounts();
-
-    console.log('Waiting on transaction success...(Around 15~30 seconds)');
-
-    await BacteriaLabCore.methods.enterGame().send({
-      from: accounts[0]
-    })
-
-    console.log('You have enter the game!');
-
-    Router.push('/gameWorld');
+    this.setState({ loading: true, errorMessage: '', messageHidden:true });
+    try {
+      await BacteriaLabCore.methods.enterGame().send({
+        from: accounts[0]
+      });
+      Router.push('/gameWorld');
+    } catch(err) {
+      this.setState({ messageHidden: false });
+      this.setState({ errorMessage: err.message });
+    }
+    this.setState({loading: false});
   };
 
 
@@ -106,12 +114,14 @@ class InvitePlayer extends Component {
               <div style={{height:'60px'}}></div>
               </div>
               
-              <Button animated='vertical' primary onClick={this.onEnterGame}>
+              <Button animated='vertical' primary onClick={this.onEnterGame} loading={this.state.loading}>
                 <Button.Content visible><h4>Go to Bacteria Land!</h4></Button.Content>
                 <Button.Content hidden>
                   <Icon name='arrow right' />
                 </Button.Content>
               </Button>
+
+              <Message error floating hidden={this.state.messageHidden} header="Your transaction failed!" content={this.state.errorMessage}/>
 
               </Container>
             </Grid.Column>
