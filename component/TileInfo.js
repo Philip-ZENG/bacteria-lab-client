@@ -29,6 +29,30 @@ class TileInfo extends Component {
     return (
         <Container>
           <div style={{height:'250px'}}>
+          <Button
+            content='Colony ID'
+            icon='heart'
+            label={{ as: 'a', basic: true, content: this.props.selectedColonyID }}
+            labelPosition='right'
+          />
+          <Button
+            content='Owner ID'
+            icon='heart'
+            label={{ as: 'a', basic: true, content: this.state.absorptionRate }}
+            labelPosition='right'
+          />
+          <Button
+            content='Absorption Rate'
+            icon='heart'
+            label={{ as: 'a', basic: true, content: this.state.absorptionRate }}
+            labelPosition='right'
+          />
+          <Button
+            content='Owner ID'
+            icon='heart'
+            label={{ as: 'a', basic: true, content: this.state.defenseNutrition}}
+            labelPosition='right'
+          />
             <p>Colony ID: {this.props.selectedColonyID}</p>
             <p>Owner ID: {this.state.absorptionRate}</p>
             <p>Absorption Rate:{this.state.defenseNutrition}</p>

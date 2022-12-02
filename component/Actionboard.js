@@ -66,13 +66,12 @@ class Actionboard extends Component {
                         <Input 
                           value={this.state.attackNutritionInput}
                           onChange={event => this.setState({ attackNutritionInput: event.target.value })}
-                          label="Nutrition"
+                          label={<Button basic color='red' loading={this.state.attackLoading}>Attack</Button>}
                           labelPosition='right'
+                          placeholder='Enter the amount of nutrition'
                         />
                       </Form.Field>
-                      <Button basic color='red' loading={this.state.attackLoading}>
-                        Attack
-                      </Button>
+                      
                     </Form>
                   </Card.Content>
                 </Card>
