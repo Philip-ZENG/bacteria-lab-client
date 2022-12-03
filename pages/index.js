@@ -12,14 +12,8 @@ import {Message} from 'semantic-ui-react';
 
 import {
   Container,
-  Divider,
-  Dropdown,
   Grid,
-  Header,
   Image,
-  List,
-  Menu,
-  Segment,
   Button,
   Icon
 } from 'semantic-ui-react'

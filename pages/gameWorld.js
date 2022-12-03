@@ -2,9 +2,6 @@
 
 import React, {Component} from 'react';
 import Head from 'next/head';
-import Router from 'next/router';
-import web3 from '../eth/web3';
-import bacteriaLabCore from '../eth/bacteriaLabCore';
 import 'semantic-ui-css/semantic.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";

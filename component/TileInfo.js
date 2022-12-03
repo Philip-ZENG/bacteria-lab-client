@@ -1,7 +1,7 @@
 // Header at the top of the gameWorld page, where players can see the infor mation of their current status
 
 import React, { Component } from 'react';
-import { Container, Button, Image, Grid, Card, Statistic } from 'semantic-ui-react';
+import { Container, Grid, Statistic } from 'semantic-ui-react';
 import BacteriaLabCore from '../eth/bacteriaLabCore';
 import { connect } from 'react-redux';
 
@@ -29,23 +29,23 @@ class TileInfo extends Component {
     return (
       <Container>
       
-      <Grid columns={2} divided verticalAlign='middle'>
-        <Grid.Row centered stretched>
-          <Grid.Column width={2}>
-            <Statistic size='small'>
-              <Statistic.Value>{'#'+this.state.selectedColonyID}</Statistic.Value>
-              <Statistic.Label>Colony ID</Statistic.Label>
-            </Statistic>
-          </Grid.Column>
+        <Grid columns={2} divided verticalAlign='middle'>
+          <Grid.Row centered stretched>
+            <Grid.Column width={2}>
+              <Statistic size='small'>
+                <Statistic.Value>{'#'+this.props.selectedColonyID}</Statistic.Value>
+                <Statistic.Label>Colony ID</Statistic.Label>
+              </Statistic>
+            </Grid.Column>
 
-          <Grid.Column width={2}>
-            <Statistic size='small'>
-              <Statistic.Value>{String(this.state.isOwned) == 'false' ? 'None' : '#'+this.state.ownerID}</Statistic.Value>
-              <Statistic.Label>Owner ID</Statistic.Label>
-            </Statistic>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+            <Grid.Column width={2}>
+              <Statistic size='small'>
+                <Statistic.Value>{String(this.state.isOwned) == 'false' ? 'None' : '#'+this.state.ownerID}</Statistic.Value>
+                <Statistic.Label>Owner ID</Statistic.Label>
+              </Statistic>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
 
         <Grid columns={3} divided verticalAlign='middle'>
           <Grid.Row centered stretched>

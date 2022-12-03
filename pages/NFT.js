@@ -3,8 +3,6 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-import web3 from '../eth/web3';
-import bacteriaLabCore from '../eth/bacteriaLabCore';
 import 'semantic-ui-css/semantic.min.css';
 
 import { Provider } from 'react-redux';
@@ -17,12 +15,8 @@ import NavbarBottom from '../component/NavbarBottom';
 import {
     Container,
     Divider,
-    Dropdown,
     Grid,
     Header,
-    Image,
-    List,
-    Menu,
     Message,
     Icon,
     Input

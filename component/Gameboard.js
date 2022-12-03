@@ -1,9 +1,8 @@
 import _ from 'lodash'
 import React,  {Component} from 'react';
 import Tile from './Tile';
-import { Grid } from "semantic-ui-react";
 
-const mapWidth = 16;
+const mapWidth = 4;
 
 function generateRow(startID) {
   const columns = _.times(mapWidth, (i) => (   

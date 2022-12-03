@@ -1,7 +1,7 @@
 // Header at the top of the gameWorld page, where players can see the infor mation of their current status
 
 import React,  {Component} from 'react';
-import { Container, Table, Image, Grid, Segment,Statistic } from 'semantic-ui-react';
+import { Container, Image, Grid, Segment,Statistic } from 'semantic-ui-react';
 import web3 from '../eth/web3';
 import BacteriaLabCore from '../eth/bacteriaLabCore';
 

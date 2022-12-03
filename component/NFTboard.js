@@ -1,7 +1,6 @@
 import _ from 'lodash'
 import React,  {Component} from 'react';
 import NFTTile from './NFTTile';
-import { Grid } from "semantic-ui-react";
 
 const mapWidth = 16;
 
