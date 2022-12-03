@@ -25,6 +25,7 @@ class PlayerInfo extends Component {
   }
 
   render(){
+    this.getPlayerInfo();
     return (
       <Container>
         <Grid columns={4} divided verticalAlign='middle'>

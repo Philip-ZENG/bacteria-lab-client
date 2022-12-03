@@ -36,6 +36,7 @@ class Tile extends Component {
   };
 
   render() {
+    this.getTileInfo();
     return(
         <Button icon color={this.state.color} size='massive' onClick={this.onTrigger.bind(this)}/>
     );
