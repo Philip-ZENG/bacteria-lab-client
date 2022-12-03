@@ -2,11 +2,11 @@ import _ from 'lodash'
 import React,  {Component} from 'react';
 import NFTTile from './NFTTile';
 
-const mapWidth = 16;
+const mapWidth = 8;
 
 function generateRow(startID) {
   const columns = _.times(mapWidth, (i) => (   
-    <NFTTile colonyID={i+startID}/>
+    <NFTTile nftTileID={i+startID}/>
   ))
   return columns;
 };

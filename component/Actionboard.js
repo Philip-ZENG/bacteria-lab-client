@@ -71,7 +71,6 @@ class Actionboard extends Component {
                           placeholder='Enter the amount of nutrition'
                         />
                       </Form.Field>
-                      
                     </Form>
                   </Card.Content>
                 </Card>

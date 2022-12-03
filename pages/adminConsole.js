@@ -5,6 +5,11 @@ import web3 from '../eth/web3';
 import bacteriaLabCore from '../eth/bacteriaLabCore';
 import {Button} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+import NavbarTop from '../component/NavbarTop';
+import NavbarBottom from '../component/NavbarBottom';
 
 class AdminConsole extends Component {
   
@@ -116,71 +121,74 @@ class AdminConsole extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to Admin Console</h1>
-        <p>Game Manager Info is Shown Below:</p>
-        <ul>
-          <li>Admin Address: {this.state.gameManager.adminAddress}</li>
-          <li>Game is Init: {String(this.state.gameManager.isInit)}</li>
-          <li>Game is Start: {String(this.state.gameManager.isStart)}</li>
-          <li>Game is End: {String(this.state.gameManager.isEnd)}</li>
-          <li>Map Lenth: {this.state.gameManager.mapLength}</li>
-          <li>Map Width: {this.state.gameManager.mapWidth}</li>
-          <li>Player Count: {this.state.gameManager.playerCount}</li>
-          <li>Total Colony Count: {this.state.gameManager.totalColonyCount}</li>
-        </ul>
-        <Button onClick={this.getGameManager} primary>Update</Button>
+        <NavbarTop />
+          <h1>Welcome to Admin Console</h1>
+          <p>-------------------------------------------------------</p>
+          <p>Game Manager Info is Shown Below:</p>
+          <ul>
+            <li>Admin Address: {this.state.gameManager.adminAddress}</li>
+            <li>Game is Init: {String(this.state.gameManager.isInit)}</li>
+            <li>Game is Start: {String(this.state.gameManager.isStart)}</li>
+            <li>Game is End: {String(this.state.gameManager.isEnd)}</li>
+            <li>Map Lenth: {this.state.gameManager.mapLength}</li>
+            <li>Map Width: {this.state.gameManager.mapWidth}</li>
+            <li>Player Count: {this.state.gameManager.playerCount}</li>
+            <li>Total Colony Count: {this.state.gameManager.totalColonyCount}</li>
+          </ul>
+          <Button onClick={this.getGameManager} primary>Update</Button>
 
-        <p>-------------------------------------------------------</p>
-        <p>Inspect Colony Info</p>
-        <ul>
-          <li>Colony ID: {this.state.colony.id}</li>
-          <li>Colony ownerID: {this.state.colony.ownerID}</li>
-          <li>Absorption Rate: {this.state.colony.absorptionRate}</li>
-          <li>Defense Nutrition: {this.state.colony.defenseNutrition}</li>
-          <li>Occupy Nutrition: {this.state.colony.occupyNutrition}</li>
-          <li>Colony is Owned: {String(this.state.colony.isOwned)}</li>
-        </ul>
+          <p>-------------------------------------------------------</p>
+          <p>Inspect Colony Info</p>
+          <ul>
+            <li>Colony ID: {this.state.colony.id}</li>
+            <li>Colony ownerID: {this.state.colony.ownerID}</li>
+            <li>Absorption Rate: {this.state.colony.absorptionRate}</li>
+            <li>Defense Nutrition: {this.state.colony.defenseNutrition}</li>
+            <li>Occupy Nutrition: {this.state.colony.occupyNutrition}</li>
+            <li>Colony is Owned: {String(this.state.colony.isOwned)}</li>
+          </ul>
 
-        <form onSubmit={this.onGetColony}>
-          <div>
-            <label>Enter Colony ID </label>
-            <input 
-              value={this.state.colonyIDforQuery}
-              onChange={event => this.setState({ colonyIDforQuery: event.target.value })}
-            />
-          </div>
-          <Button>Query Colony Info</Button>
-        </form>
+          <form onSubmit={this.onGetColony}>
+            <div>
+              <label>Enter Colony ID </label>
+              <input 
+                value={this.state.colonyIDforQuery}
+                onChange={event => this.setState({ colonyIDforQuery: event.target.value })}
+              />
+            </div>
+            <Button primary>Query Colony Info</Button>
+          </form>
 
-        <p>-------------------------------------------------------</p>
-        <p>Inspect Player Info</p>
-        <ul>
-          <li>Player ID: {this.state.player.id}</li>
-          <li>Player Address: {this.state.player.playerAddress}</li>
-          <li>Nutrition: {this.state.player.nutrition}</li>
-          <li>Absorption Rate: {this.state.player.absorptionRate}</li>
-          <li>Color: {this.state.player.color}</li>
-          <li>Colony Count: {this.state.player.colonyCount}</li>
-        </ul>
-        <form onSubmit={this.onGetPlayer}>
-          <div>
-            <label>Enter Player ID </label>
-            <input 
-              value={this.state.playerIDforQuery}
-              onChange={event => this.setState({ playerIDforQuery: event.target.value })}
-            />
-          </div>
-          <Button>Query Player Info</Button>
-        </form>
+          <p>-------------------------------------------------------</p>
+          <p>Inspect Player Info</p>
+          <ul>
+            <li>Player ID: {this.state.player.id}</li>
+            <li>Player Address: {this.state.player.playerAddress}</li>
+            <li>Nutrition: {this.state.player.nutrition}</li>
+            <li>Absorption Rate: {this.state.player.absorptionRate}</li>
+            <li>Color: {this.state.player.color}</li>
+            <li>Colony Count: {this.state.player.colonyCount}</li>
+          </ul>
+          <form onSubmit={this.onGetPlayer}>
+            <div>
+              <label>Enter Player ID </label>
+              <input 
+                value={this.state.playerIDforQuery}
+                onChange={event => this.setState({ playerIDforQuery: event.target.value })}
+              />
+            </div>
+            <Button primary>Query Player Info</Button>
+          </form>
 
 
-        <p>-------------------------------------------------------</p>
-        <p>Update Nutrition Periodically</p>
-        <Button onClick={this.onNutritionUpdate}>Update</Button>
+          <p>-------------------------------------------------------</p>
+          <p>Update Nutrition Periodically</p>
+          <Button onClick={this.onNutritionUpdate} primary>Update</Button>
 
-        <p>-------------------------------------------------------</p>
-        <p>Log</p>
-        <p> &gt;&gt;&gt; {this.state.message}</p>
+          <p>-------------------------------------------------------</p>
+          <p>Log</p>
+          <p> &gt;&gt;&gt; {this.state.message}</p>
+        <NavbarBottom />
       </div>
     );
   };

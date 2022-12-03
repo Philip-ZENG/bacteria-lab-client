@@ -7,12 +7,11 @@ import { connect } from 'react-redux';
 const colorMapping = ["blue", "yellow", "red", "green", "violet", "purple", "pink"];
 const defaultColor = "grey";
 
-class Tile extends Component {
+class NFTTile extends Component {
 
   state = {
-    colonyID: this.props.colonyID,
+    nftTileID: this.props.nftTileID,
     color: "grey",
-    selectedColonyID: ""
   }
 
   async componentDidMount(){
@@ -20,18 +19,16 @@ class Tile extends Component {
   }
 
   async getTileInfo() {
-    const colonyInfo = await BacteriaLabCore.methods.getColonyInfo(this.state.colonyID).call();
-    // If the colony has owner, the color is set to its owner's color
-    if(colonyInfo[5]) {
-      const colonyColor = colorMapping[colonyInfo[1]];
-      this.setState({color: colonyColor});
-    // If the colony has no owner, the color is set to the default color
-    } else {
-      this.setState({color: defaultColor});
+    const tileColorID = await BacteriaLabCore.methods.getNftTileInfo(this.props.selectedNFTID, this.state.nftTileID).call();
+    let tileColor = defaultColor;
+    if(tileColorID != 255){
+      tileColor = colorMapping[tileColorID];
     }
+    this.setState({color: tileColor});
   }
 
   render() {
+    this.getTileInfo();
     return(
         <Button icon color={this.state.color} size='massive'/>
     );
@@ -40,14 +37,14 @@ class Tile extends Component {
 
 const mapStateToProps = state => {
   return {
-    selectedColonyID: state.selectedColonyID
+    selectedNFTID: state.selectedNFTID
   }
 };
 
+// No need to change store state here
 const mapDispatchToProps = dispatch => {
   return {
-    changeSelectedColony: (newColonyID) => dispatch({type: 'changeSelectedColony', newSelectedColonyID: newColonyID})
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tile);
+export default connect(mapStateToProps, mapDispatchToProps)(NFTTile);
