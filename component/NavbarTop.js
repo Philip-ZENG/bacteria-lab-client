@@ -13,7 +13,7 @@ class NavbarTop extends Component {
           </Menu.Item>
           <Menu.Item as='a' onClick={()=>{Router.push('/')}}>Home</Menu.Item>
           <Menu.Item as='a' onClick={()=>{Router.push('/gameWorld')}}>GameWorld</Menu.Item>
-          <Menu.Item as='a' onClick={()=>{Router.push('/NFT')}}>NFT (Beta)</Menu.Item>
+          <Menu.Item as='a' onClick={()=>{Router.push('/NFT')}}>NFT</Menu.Item>
 
           <Dropdown item simple text='Admin (only for Beta)'>
             <Dropdown.Menu>

@@ -19,20 +19,10 @@ import {
     Grid,
     Header,
     Message,
-    Icon,
-    Input,
+    Icon
 } from 'semantic-ui-react'
 
 class NFT extends Component {
-
-
-
-  
-  // Triggered when "Show NFT" button is clicked
-  onShowNFT = async () =>{
-
-  }
-
   render() {
     return (
       <div>
@@ -72,7 +62,6 @@ class NFT extends Component {
               />
 
               {/* <div style={{height:'25px'}}></div> */}
-
 
               <Divider horizontal>
                 <Header as='h3'>

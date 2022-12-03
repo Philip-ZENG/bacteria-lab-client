@@ -19,7 +19,12 @@ class NFTTile extends Component {
   }
 
   async getTileInfo() {
-    const tileColorID = await BacteriaLabCore.methods.getNftTileInfo(this.props.selectedNFTID, this.state.nftTileID).call();
+    var tileColorID = 255;
+    try {
+      tileColorID = await BacteriaLabCore.methods.getNftTileInfo(this.props.selectedNFTID, this.state.nftTileID).call();
+    } catch(err) {
+    }
+    
     let tileColor = defaultColor;
     if(tileColorID != 255){
       tileColor = colorMapping[tileColorID];

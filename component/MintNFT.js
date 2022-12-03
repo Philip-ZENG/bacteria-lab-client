@@ -16,11 +16,11 @@ class MintNFT extends Component {
     const accounts = await web3.eth.getAccounts();
     this.setState({ mintLoading: true, mintMessageContent: '',  mintMessageHidden:true });
     try {
-      const nftID = await BacteriaLabCore.methods.createNFT(accounts[0]).send({
+      await BacteriaLabCore.methods.createNFT(accounts[0]).send({
         from: accounts[0]
       });
-      console.log(nftID);
-      this.setState({ mintMessageHidden: false, mintSuccess:true, mintMessageContent: `Successfuly mint a new NFT. The NFT ID is: ${nftID[0]}.`});
+      const nftID = await BacteriaLabCore.methods.getLatestGeneratedNFTID().call();
+      this.setState({ mintMessageHidden: false, mintSuccess:true, mintMessageContent: `Successfuly mint a new NFT. The NFT ID is: ${nftID}.`});
     } catch(err) {
       this.setState({ mintMessageHidden: false, mintSuccess:false, mintMessageContent: err.message});
     }

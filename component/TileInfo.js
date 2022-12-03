@@ -20,8 +20,12 @@ class TileInfo extends Component {
   }
 
   async getColonyInfo() {
-    const colonyInfo = await BacteriaLabCore.methods.getColonyInfo(this.props.selectedColonyID).call();
-    this.setState({ ownerID: colonyInfo[1], absorptionRate: colonyInfo[2], defenseNutrition: colonyInfo[3], occupyNutrition: colonyInfo[4], isOwned: colonyInfo[5] });
+    try {
+      const colonyInfo = await BacteriaLabCore.methods.getColonyInfo(this.props.selectedColonyID).call();
+      this.setState({ ownerID: colonyInfo[1], absorptionRate: colonyInfo[2], defenseNutrition: colonyInfo[3], occupyNutrition: colonyInfo[4], isOwned: colonyInfo[5] });
+    } catch(err) {
+      this.setState({ ownerID: "#", absorptionRate: "#", defenseNutrition: "#", occupyNutrition: "#", isOwned: false})
+    }
   }
 
   render() {
