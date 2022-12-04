@@ -6,7 +6,7 @@ import web3 from './web3';
 import BacteriaLabCoreABI from './contract_abi/BacteriaLabCore.json';
 
 // contract deployment address
-const address = '0x1a8044b57ea3e4C83f42D2909343577C9C0c42CD';
+const address = '0x4938e72b4bD768C4BF570b1baa30Ed306bcAB324';
 
 // contract abi
 const abi = BacteriaLabCoreABI;

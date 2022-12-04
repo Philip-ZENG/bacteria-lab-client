@@ -2,7 +2,7 @@ import _ from 'lodash'
 import React,  {Component} from 'react';
 import Tile from './Tile';
 
-const mapWidth = 8;
+const mapWidth = 16;
 
 function generateRow(startID) {
   const columns = _.times(mapWidth, (i) => (   

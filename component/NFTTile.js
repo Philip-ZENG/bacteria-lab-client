@@ -4,7 +4,7 @@ import BacteriaLabCore from '../eth/bacteriaLabCore';
 import { connect } from 'react-redux';
 
 // Define how player id maps to its color
-const colorMapping = ["blue", "yellow", "red", "green", "violet", "purple", "pink"];
+const colorMapping = ["grey", "yellow", "red", "green", "violet", "purple", "pink" , "blue"];
 const defaultColor = "grey";
 
 class NFTTile extends Component {
